@@ -36,12 +36,12 @@ public class main {
 //        System.out.println(code);
 
 
-        ReadDatabase r = new ReadDatabase();
+        Database r = new Database();
         GetRes g = new GetRes();
         ArrayList<String> list = r.readUrl();
         int i =0;
         for (i=0; i<list.size(); i++){
-            URL url = new URL(list.get(i));
+            String url = list.get(i);
             g.getResp(url);
         }
 

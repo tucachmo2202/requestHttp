@@ -11,10 +11,10 @@ public class GetRes {
     private Response response = null;
     private HttpResponse httpResponse = null;
 
-    public void getResp (URL url) throws ClientProtocolException, IOException, Exception {
+    public void getResp (String url) throws ClientProtocolException, IOException, Exception {
 
         int start = (int) System.currentTimeMillis();
-        response = Request.Get(String.valueOf(url)).execute();
+        response = Request.Get(url).execute();
         httpResponse = response.returnResponse();
         StatusLine code =  httpResponse.getStatusLine();
         String strcode = code.toString();
@@ -26,7 +26,7 @@ public class GetRes {
         long javaTime = javaDate.getTime();
         java.sql.Date sqlDate = new java.sql.Date(javaTime);
 
-        ReadDatabase r = new ReadDatabase();
+        Database r = new Database();
         r.updateDatabases(url.toString(), sqlDate, time_response, intCode);
 
 

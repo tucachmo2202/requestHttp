@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class ReadDatabase {
+public class Database {
 
     private Connection connect = null;
     private Statement statement = null;

@@ -1,0 +1,4 @@
+đây là dòng thứ 1
+đây là dòng thứ 2
+đây là dòng thứ 3
+file này có 4 dòng thôi
