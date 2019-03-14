@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class JdbcMTSample extends Thread
 {
-    // Default no of threads to 10
+    // So luong mac dinh la 4
     private static int NUM_OF_THREADS = 4;
 
     int m_myId;
@@ -82,10 +82,10 @@ public class JdbcMTSample extends Thread
                 {
                     String url = rs.getString("url");
                     System.out.println("Thread " + m_myId +
-                            " Employee Id : " + url);
-                    GetRes r = new GetRes();
+                            " URL : " + url);
+                    ResponseHttp r = new ResponseHttp();
                     r.getResp(url);
-                    yield();  // Yield To other threads
+                    yield();
                 }
                 System.out.println("Thread " + m_myId +  " is finished. ");
             }

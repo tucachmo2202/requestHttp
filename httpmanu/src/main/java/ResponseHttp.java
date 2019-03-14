@@ -7,7 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
 
-public class GetRes {
+public class ResponseHttp {
     private Response response = null;
     private HttpResponse httpResponse = null;
 
