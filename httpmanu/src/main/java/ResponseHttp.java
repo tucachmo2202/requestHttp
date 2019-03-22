@@ -11,7 +11,7 @@ public class ResponseHttp {
     private Response response = null;
     private HttpResponse httpResponse = null;
 
-    public void getResp (String url) throws ClientProtocolException, IOException, Exception {
+    public void getResp (String url) throws Exception {
 
         int start = (int) System.currentTimeMillis();
         response = Request.Get(url).execute();
@@ -27,7 +27,7 @@ public class ResponseHttp {
         java.sql.Date sqlDate = new java.sql.Date(javaTime);
 
         Database r = new Database();
-        r.updateDatabases(url.toString(), sqlDate, time_response, intCode);
+        r.updateDatabases(url, sqlDate, time_response, intCode);
 
 
         //return intCode;
