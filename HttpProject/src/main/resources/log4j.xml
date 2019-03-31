@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://jakarta.apache.org/log4j/ ">
+
+    <appender name="MyConsole" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+        </layout>
+    </appender>
+
+    <!--    Chú ý: Class org.apache.log4j.RollingFileAppender cho phép cấu hình thuộc tính của file log-->
+    <appender name="MultithreadFileAppender" class="org.apache.log4j.FileAppender">
+        <param name="File" value="logs/multithread.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{dd MMM yyyy HH:mm:ss,SSS} {%t} %-5p %c %x - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- logger name phải là tên của package! -->
+    <logger name="http_database">
+        <level value="DEBUG"/>
+        <appender-ref ref="MultithreadFileAppender"/>
+    </logger>
+
+
+    <root>
+        <priority value="debug"/>
+        <appender-ref ref="MyConsole"/>
+        <appender-ref ref="MultithreadFileAppender"/>
+    </root>
+
+</log4j:configuration>
